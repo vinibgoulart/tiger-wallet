@@ -1,0 +1,9 @@
+{
+  "name": "@tiger-wallet/null",
+  "version": "0.0.0",
+  "private": true,
+  "main": "src/index.ts",
+  "scripts": {
+    "es": "ESBUILD_RUN=true node -r esbuild-register"
+  }
+}

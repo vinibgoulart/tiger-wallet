@@ -1,0 +1,17 @@
+{
+  "name": "@tiger-wallet/auth",
+  "version": "0.0.0",
+  "private": true,
+  "main": "src/index.ts",
+  "scripts": {
+    "env:local": "cp .env.local .env",
+    "es": "ESBUILD_RUN=true node -r esbuild-register"
+  },
+  "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.5",
+    "@tiger-wallet/config": "*"
+  },
+  "dependencies": {
+    "jsonwebtoken": "^9.0.2"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "@tiger-wallet/config",
+  "version": "0.0.0",
+  "private": true,
+  "main": "src/index.ts",
+  "devDependencies": {
+    "@types/dotenv-safe": "^8.1.5",
+    "dotenv-safe": "^8.2.0"
+  },
+  "sideEffects": false
+}

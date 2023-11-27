@@ -1,0 +1,38 @@
+{
+  "name": "@tiger-wallet/server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.ts",
+  "scripts": {
+    "env:local": "cp .env.local .env",
+    "build": "esbuild ./src/index.ts --bundle --platform=node --outdir=dist --allow-overwrite",
+    "start": "node dist/index.js",
+    "es": "nodemon --watch ../../ --ext ts --exec 'pnpm run build && pnpm start' -r esbuild-register",
+    "dev": "pnpm es ./src/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tiger-wallet/config": "*",
+    "@tiger-wallet/user": "*",
+    "@tiger-wallet/auth": "*",
+    "body-parser": "^1.20.2",
+    "cookie-parser": "^1.4.6",
+    "express": "^4.18.2",
+    "esbuild": "^0.19.5",
+    "esbuild-register": "^3.5.0",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.19.5",
+    "@types/cookie-parser": "^1.4.6",
+    "@types/express": "^4.17.21",
+    "@types/jsonwebtoken": "^9.0.5",
+    "@types/node": "^20.5.2",
+    "@types/pg": "^8.10.9",
+    "nodemon": "^3.0.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  }
+}

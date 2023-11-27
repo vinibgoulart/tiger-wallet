@@ -1,0 +1,27 @@
+{
+  "version": "5",
+  "dialect": "pg",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1700423012225,
+      "tag": "0000_dear_jackpot",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1700423027275,
+      "tag": "0001_sturdy_sentinel",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1700423139145,
+      "tag": "0002_workable_marauders",
+      "breakpoints": true
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "name": "tiger-wallet",
+  "private": true,
+  "scripts": {
+    "env:local": "turbo run env:local",
+    "build": "turbo run build",
+    "start": "turbo run start",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "migrate": "turbo run migrate",
+    "es": "ESBUILD_RUN=true node -r esbuild-register",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^20.5.2",
+    "@types/validator": "^13.11.6",
+    "eslint": "^8.48.0",
+    "prettier": "^3.0.3",
+    "turbo": "latest",
+    "typescript": "^5.2.2",
+    "vitest": "^0.34.6"
+  },
+  "dependencies": {
+    "@turbo/gen": "^1.10.12",
+    "bcryptjs": "^2.4.3",
+    "esbuild": "^0.19.5",
+    "esbuild-register": "^3.5.0",
+    "ts-node": "^10.9.1",
+    "validator": "^13.11.0"
+  },
+  "packageManager": "yarn@1.22.19",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
+}

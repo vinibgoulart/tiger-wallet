@@ -1,0 +1,20 @@
+{
+  "name": "@tiger-wallet/database",
+  "version": "0.0.0",
+  "private": true,
+  "main": "src/index.ts",
+  "dependencies": {
+    "drizzle-orm": "^0.29.0",
+    "pg": "^8.11.3",
+    "@tiger-wallet/config": "*"
+  },
+  "devDependencies": {
+    "drizzle-kit": "^0.20.4"
+  },
+  "scripts": {
+    "env:local": "cp .env.local .env",
+    "es": "ESBUILD_RUN=true node -r esbuild-register",
+    "migrate:generate": "drizzle-kit generate:pg --out src/migrations --schema src/schema.ts",
+    "migrate": "pnpm run migrate:generate && pnpm run es src/migrate.ts"
+  }
+}
