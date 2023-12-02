@@ -3,6 +3,7 @@ import { useFonts } from 'expo-font';
 import { SplashScreen } from 'expo-router';
 import { useEffect } from 'react';
 import Nav from '../components/Nav';
+import { SessionProvider } from '../auth/AuthProvider';
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -38,7 +39,11 @@ const RootLayout = () => {
     return null;
   }
 
-  return <Nav />;
+  return (
+    <SessionProvider>
+      <Nav />
+    </SessionProvider>
+  );
 };
 
 export default RootLayout;

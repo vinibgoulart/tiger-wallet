@@ -1,10 +1,11 @@
-import { Text, View } from 'react-native';
+import { Layout } from '../../components/Layout';
+import { Text } from 'react-native';
 
 const TabOneScreen = () => {
   return (
-    <View className="flex-1 items-center justify-center">
+    <Layout>
       <Text>Tab One</Text>
-    </View>
+    </Layout>
   );
 };
 
