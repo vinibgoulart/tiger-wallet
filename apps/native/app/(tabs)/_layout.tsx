@@ -3,7 +3,7 @@ import { Link, Tabs } from 'expo-router';
 import { Pressable } from 'react-native';
 import { colors } from '@tiger-wallet/theme';
 
-export default function TabLayout() {
+const TabLayout = () => {
   return (
     <Tabs
       screenOptions={{
@@ -54,4 +54,6 @@ export default function TabLayout() {
       />
     </Tabs>
   );
-}
+};
+
+export default TabLayout;
