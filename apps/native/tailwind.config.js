@@ -1,6 +1,8 @@
 const pastel = '#fafdfa';
-const primary = '#3d3435';
-const secondary = '#ea521f';
+const primary = '#ea521f';
+const secondary = '#3d3435';
+const error = '#f44336';
+const success = '#4caf50';
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -23,6 +25,18 @@ module.exports = {
           main: secondary,
           dark: secondary,
         },
+      },
+    },
+    colors: {
+      error: {
+        light: error,
+        main: error,
+        dark: error,
+      },
+      success: {
+        light: success,
+        main: success,
+        dark: success,
       },
     },
   },

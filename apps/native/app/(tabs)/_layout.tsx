@@ -1,9 +1,20 @@
 import { Ionicons } from '@expo/vector-icons';
-import { Link, Tabs } from 'expo-router';
-import { Pressable } from 'react-native';
+import { Link, Redirect, Tabs } from 'expo-router';
+import { Pressable, Text } from 'react-native';
 import { colors } from '@tiger-wallet/theme';
+import { useSession } from '../../auth/AuthProvider';
 
 const TabLayout = () => {
+  const { session, isLoading } = useSession();
+
+  if (isLoading) {
+    return <Text>Loading...</Text>;
+  }
+
+  if (!session) {
+    return <Redirect href="/sign-in" />;
+  }
+
   return (
     <Tabs
       screenOptions={{
@@ -44,7 +55,7 @@ const TabLayout = () => {
         }}
       />
       <Tabs.Screen
-        name="two"
+        name="profile"
         options={{
           title: 'Profile',
           tabBarIcon: ({ color }) => (
