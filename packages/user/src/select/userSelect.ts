@@ -2,17 +2,17 @@ import { db, eq, users, IUser } from '@tiger-wallet/database';
 import { userSelectPayloadValidation } from './userSelectPayloadValidation';
 
 export type UserSelectPayload = {
-  id: string;
+  id: string | number;
 };
 
 type UserSelectSuccess = {
+  success: true;
   user: Omit<IUser, 'password'>;
-  error?: never;
 };
 
 type UserSelectError = {
+  success: false;
   error: string;
-  user?: never;
 };
 
 type UserSelectResponse = UserSelectSuccess | UserSelectError;
@@ -24,6 +24,7 @@ export const userSelect = async (
 
   if (payloadIsValid) {
     return {
+      success: false,
       error: payloadIsValid,
     };
   }
@@ -37,11 +38,13 @@ export const userSelect = async (
 
   if (!user) {
     return {
+      success: false,
       error: 'User not found',
     };
   }
 
   return {
+    success: true,
     user,
   };
 };

@@ -17,7 +17,7 @@ export const apiUserGet = async (req: Request, res: Response) => {
 
   const result = await userSelect(payload);
 
-  if (result.error) {
+  if (!result.success) {
     res.status(400).json({
       error: result.error,
       user: null,

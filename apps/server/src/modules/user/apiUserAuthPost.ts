@@ -1,5 +1,5 @@
 import { userAuthenticate } from '@tiger-wallet/user';
-import { useAuthCookies, COOKIES_SCOPES } from '@tiger-wallet/auth';
+import { setAuthToken } from '@tiger-wallet/auth';
 import { Request, Response } from 'express';
 
 export const apiUserAuthPost = async (req: Request, res: Response) => {
@@ -10,7 +10,7 @@ export const apiUserAuthPost = async (req: Request, res: Response) => {
 
   const result = await userAuthenticate(payload);
 
-  if (result.error) {
+  if (!result.success) {
     res.status(400).json({
       error: result.error,
       user: null,
@@ -19,12 +19,9 @@ export const apiUserAuthPost = async (req: Request, res: Response) => {
     return;
   }
 
-  const { token, options } = useAuthCookies(
-    COOKIES_SCOPES.USER.AUTH,
-    result.user.id,
-  );
+  setAuthToken(res, result.user);
 
-  res.cookie('access_token', token, options).json({
+  res.json({
     success: 'User logged in successfully',
     user: result.user,
   });

@@ -12,6 +12,7 @@
     "@tiger-wallet/config": "*"
   },
   "dependencies": {
-    "jsonwebtoken": "^9.0.2"
+    "jsonwebtoken": "^9.0.2",
+    "@tiger-wallet/database": "*"
   }
 }

@@ -19,9 +19,13 @@ export const authMiddleware = async (
   try {
     const data = jwt.verify(token, config.JWT_SECRET!);
 
-    const user = await userSelect({ id: data.id });
+    const result = await userSelect({ id: data.id });
 
-    req.user = user;
+    if (!result.success) {
+      throw new Error(result.error);
+    }
+
+    req.user = result.user;
     return next();
   } catch {
     return res.status(403).json({

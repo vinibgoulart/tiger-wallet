@@ -8,13 +8,13 @@ export type UserAuthenticatePayload = {
 };
 
 type UserAuthenticateSuccess = {
+  success: true;
   user: Omit<IUser, 'password'>;
-  error?: never;
 };
 
 type UserAuthenticateError = {
+  success: false;
   error: string;
-  user?: never;
 };
 
 type UserAuthenticateResponse = UserAuthenticateSuccess | UserAuthenticateError;
@@ -26,6 +26,7 @@ export const userAuthenticate = async (
 
   if (payloadIsValid) {
     return {
+      success: false,
       error: payloadIsValid,
     };
   }
@@ -36,6 +37,7 @@ export const userAuthenticate = async (
 
   if (!user) {
     return {
+      success: false,
       error: 'Invalid email or password',
     };
   }
@@ -44,6 +46,7 @@ export const userAuthenticate = async (
 
   if (!isPasswordValid) {
     return {
+      success: false,
       error: 'Invalid email or password',
     };
   }
@@ -51,6 +54,7 @@ export const userAuthenticate = async (
   const { password, ...userWithoutPassword } = user;
 
   return {
+    success: true,
     user: userWithoutPassword,
   };
 };
